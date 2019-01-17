@@ -9,3 +9,4 @@
 - git commit -am "Message"
 - git push origin master
 - git pull
+- pip3 install -r requirements.txt
