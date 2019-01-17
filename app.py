@@ -1,14 +1,17 @@
 from flask import Flask,render_template
+from datetime import datetime
 
 app = Flask(__name__)
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    name = 'Aaron Smith'
+    age = 27
+    return render_template('index.html',name=name,age=age)
 
 @app.route('/hello')
 def hello():
-    return render_template('hello.html')
+    return render_template('test.html')
 
 @app.route('/world')
 def world():
