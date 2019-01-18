@@ -3,6 +3,10 @@ from datetime import datetime
 
 app = Flask(__name__)
 
+#todays date
+time_in_stamp = datetime.today()
+print("TIME-IN:  "+ str(time_in_stamp))
+
 @app.route('/')
 def index():
     name = 'Aaron Smith'
