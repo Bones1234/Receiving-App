@@ -11,7 +11,8 @@ print("TIME-IN:  "+ str(time_in_stamp))
 def index():
     name = 'Aaron Smith'
     age = 27
-    return render_template('index.html',name=name,age=age)
+    time_in_stamp = datetime.today()
+    return render_template('index.html',name=name,age=age,time=time_in_stamp)
 
 @app.route('/hello')
 def hello():
