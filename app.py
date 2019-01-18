@@ -1,9 +1,13 @@
-from flask import Flask,render_template
+from flask import Flask,render_template,request,jsonify
 from datetime import datetime
 from flask_sqlalchemy import SQLAlchemy
 import sqlite3
+from flask_debugtoolbar import DebugToolbarExtension
 
 app = Flask(__name__)
+app.debug = True
+app.config['SECRET_KEY'] = "itsasecret"
+toolbar = DebugToolbarExtension(app)
 
 # DATABASE LOGIC for MYSQL (not uisng now)
 # app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://username:password@localhost/db_name'
@@ -43,11 +47,10 @@ def index():
 def hello():
     return render_template('test.html')
 
-@app.route('/world')
-def world():
-    a = 1
-    b = 2
-    return render_template('world.html',sum=a+b)
+@app.route('/output',methods=["GET","POST"])
+def output():
+    data = request.form.to_dict()
+    return render_template('output.html',data=data)
 
 if __name__ =="__main__":
-    app.run(debug=True)
+    app.run()
