@@ -1,5 +1,4 @@
 Flask
-Flask-RESTful
-Jinja2
 SQLAlchemy
+Flask-SQLAlchemy
 
