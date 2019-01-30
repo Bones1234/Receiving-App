@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, g, redirect, url_for
+from flask import Flask, render_template, request, g, redirect, url_for,jsonify
 #from flask_bootstrap import Bootstrap
 from flask_sqlalchemy import SQLAlchemy 
 import sqlite3
@@ -45,6 +45,11 @@ def index():
   hello_text = "Appointments"
   result = Appointments.query.order_by('name desc').limit(LIMIT).all()
   return render_template('index.html', result=result)
+
+@app.route('/output')
+def output():
+  data = request.get_json()
+  return jsonify(data)
 
 @app.route("/enter")
 def enter():

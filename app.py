@@ -40,9 +40,9 @@ print("TIME-IN:  "+ str(time_in_stamp))
 @app.route('/')
 def index():
     name = 'Aaron Smith'
-    age = 27
+    id = "HHA27-2882GW-74BA983"
     time_in = datetime.today()
-    return render_template('index.html',name=name,age=age,time_in=time_in)
+    return render_template('index.html',name=name,id=id,time_in=time_in)
 
 @app.route('/hello')
 def hello():

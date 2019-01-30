@@ -3,12 +3,8 @@
 {%block content%}
 <div class="container">
 <h1>{{name}}</h1>
-<p>{{age}}</p>
-<<<<<<< HEAD
-<p>TIME IN: {{time_in}}</p>
-    {%include 'components/form.html'%}
-=======
-<p>TIME IN: {{time}}</p>
+<p><b>ID:</b> {{id}}</p>
+<p><b>TIME IN:</b> {{time_in}}</p>
     <form action='/output' method="POST">
         <div class="form-row">
           <div class="form-group col-md-6">
@@ -17,12 +13,12 @@
           </div>
           <div class="form-group col-md-6">
             <label for="inputPhoneNumber">PhoneNumber</label>
-            <input type="phone number" class="form-control" id="inputPhoneNumber" name="Phone Number" placeholder="Phone Number">
+            <input type="phone" class="form-control" id="inputPhoneNumber" name="Phone Number" placeholder="Phone Number">
           </div>
         </div>
         <div class="form-group">
           <label for="inputPONumber">PO #</label>
-          <input type="text" class="form-control" id="inputPONumber" name="po_number" placeholder="12345" pattern=".{5}" required title="5 characters">
+          <input type="tel" class="form-control" id="inputPONumber" name="po_number" placeholder="12345" pattern=".{5}" required title="5 characters">
         </div>
         <div class="form-group">
           <label for="inputTrailerNumber">Trailer #</label>
@@ -73,6 +69,5 @@
         <button type="submit" class="btn btn-primary">Submit</button>
       </form>
 
->>>>>>> b71f6eb4d81ea3975a12690c60730f7f9254528e
 </div>
 {%endblock%}
