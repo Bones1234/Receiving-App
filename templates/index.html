@@ -4,66 +4,7 @@
 <div class="container">
 <h1>{{name}}</h1>
 <p>{{age}}</p>
-<p>TIME IN: {{time}}</p>
-    <form action='/output' method="POST">
-        <div class="form-row">
-          <div class="form-group col-md-6">
-            <label for="inputEmail4">Driver's Name</label>
-            <input type="text" class="form-control" id="inputName" name="driver_name" placeholder="Enter Name Here">
-          </div>
-          <div class="form-group col-md-6">
-            <label for="inputPassword4">Password</label>
-            <input type="password" class="form-control" id="inputPassword4" name="password" placeholder="Password">
-          </div>
-        </div>
-        <div class="form-group">
-          <label for="inputPONumber">PO #</label>
-          <input type="text" class="form-control" id="inputPONumber" name="po_number" placeholder="12345" pattern=".{5}" required title="5 characters">
-        </div>
-        <div class="form-group">
-          <label for="inputTrailerNumber">Trailer #</label>
-          <input type="text" class="form-control" id="inputTrailerNumber" name="trailer_number" placeholder="00000">
-        </div>
-        <div class="form-row">
-          <div class="form-group col-md-6">
-            <label for="inputCity">City</label>
-            <input type="text" class="form-control" name="city" id="inputCity">
-          </div>
-          <div class="form-group col-md-4">
-            <label for="inputSubmissions">Submissions</label>
-            <select id="inputSubmissions" class="form-control" name="submissions">
-              <option selected>Choose...</option>
-              <option>...</option>
-            </select>
-          </div>
-          <div class="form-group col-md-2">
-            <label for="inputZip">Zip</label>
-            <input type="text" class="form-control" name="zip" id="inputZip">
-          </div>
-        </div>
-
-        <p>Status</p>
-        <div class="form-group">
-        <p>
-          <input id = "pending" type = "radio" name = "status"
-              value = "pending" checked />
-          <label for = "pending">Pending</label>
-      </p>
-      
-      <p>
-          <input id = "complete" type = "radio" name = "status"
-              value = "complete" checked />
-          <label for = "complete">Complete</label>
-      </p>
-
-      <p>
-        <input id = "staging" type = "radio" name = "status"
-            value = "staging" checked />
-        <label for = "staging">Staging</label>
-    </p></div>
-
-        <button type="submit" class="btn btn-primary">Submit</button>
-      </form>
-
+<p>TIME IN: {{time_in}}</p>
+    {%include 'components/form.html'%}
 </div>
 {%endblock%}

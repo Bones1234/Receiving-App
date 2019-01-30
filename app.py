@@ -6,10 +6,11 @@ from flask_debugtoolbar import DebugToolbarExtension
 
 app = Flask(__name__)
 app.debug = True
-app.config['SECRET_KEY'] = "itsasecret"
-toolbar = DebugToolbarExtension(app)
+# FOR TOOLBAR
+# app.config['SECRET_KEY'] = "itsasecret"
+# toolbar = DebugToolbarExtension(app)
 
-# DATABASE LOGIC for MYSQL (not uisng now)
+# DATABASE LOGIC for MYSQL (not using now)
 # app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://username:password@localhost/db_name'
 # db = SQLAlchemy(app)
 
@@ -32,7 +33,7 @@ toolbar = DebugToolbarExtension(app)
 # User.query.all()
 # User.query.filter_by(username='admin').first()
 
-#todays date
+#get todays date
 time_in_stamp = datetime.today()
 print("TIME-IN:  "+ str(time_in_stamp))
 
@@ -40,8 +41,8 @@ print("TIME-IN:  "+ str(time_in_stamp))
 def index():
     name = 'Aaron Smith'
     age = 27
-    time_in_stamp = datetime.today()
-    return render_template('index.html',name=name,age=age,time=time_in_stamp)
+    time_in = datetime.today()
+    return render_template('index.html',name=name,age=age,time_in=time_in)
 
 @app.route('/hello')
 def hello():
