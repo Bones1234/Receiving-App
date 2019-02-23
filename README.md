@@ -5,15 +5,27 @@ IMPORTANT: Once I add the database, you will need to do this first to install ev
 
 # Requested Fields:
 
-## Appointment time/date 
+## Appointment time/date:
 
 (Pulled from database)
 
-## Time-in 
+## Time-in:
 
 (Time stamped on submission)
 
-## PO number: (Purchase Order Number)
+## PO number: (Purchase Order Number):
+
+## Phone Number:
+
+Driver's Phone number
+
+## Driver's Name
+
+##Sercurity Initials
+
+## Carrier:
+
+Driver's Company name
 
 This is the ID associated with the driver's "Bill of lading" which is essentially a document showing all of the product that is on the back of the truck. NOTE: Driver's can have multiple PO's so we will need to be able to enter multiple PO's. PO numbers are 5 digits long. (Maybe have a safegaurd that won't allow submission of the form if the PO number is more than 5 characters.)
 
