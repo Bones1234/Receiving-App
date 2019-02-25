@@ -57,3 +57,4 @@ will be listed on this page and updatable from this page. Statuses inlude (Pendi
 - git pull
 - pip3 install -r requirements.txt
 
+Just updating you on the app. We’ll be working with the actual Americold IT people to get it actually done. The prototype will serve as a template for them to work on.
