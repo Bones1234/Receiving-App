@@ -1,73 +1,31 @@
-{%extends 'layout.html'%}
+{% extends 'layout.html' %}
+{% block content %}
+  {% with params=assignees%}
+    {% include 'components/_new.html'%}
+  {% endwith %}
 
-{%block content%}
-<div class="container">
-<h1>{{name}}</h1>
-<p><b>ID:</b> {{id}}</p>
-<p><b>TIME IN:</b> {{time_in}}</p>
-    <form action='/output' method="POST">
-        <div class="form-row">
-          <div class="form-group col-md-6">
-            <label for="inputEmail4">Driver's Name</label>
-            <input type="text" class="form-control" id="inputName" name="driver_name" placeholder="Enter Name Here">
-          </div>
-          <div class="form-group col-md-6">
-            <label for="inputPhoneNumber">PhoneNumber</label>
-            <input type="phone" class="form-control" id="inputPhoneNumber" name="Phone Number" placeholder="Phone Number">
-          </div>
+  {% block body %}
+  <div class="content">
+    <div class="mt-4 bg-blue-500 text-white w-full p-8 text-4xl">Appointments</div>
+
+    {% if appts|length < 1 %}
+      <h4 style="text-align: center">There are no appointments. Create one above!</h4>
+    {% else %}
+    {% for appt in appts %}
+      <div class="card mt-4">
+        <div class="card-header">
+          {{ appt.po_number}} {{ appt.date_created.date() }}
         </div>
-        <div class="form-group">
-          <label for="inputPONumber">PO #</label>
-          <input type="tel" class="form-control" id="inputPONumber" name="po_number" placeholder="12345" maxlength="5" pattern=".{5}" required title="5 characters">
+        <div class="card-body">
+          <h5 class="card-title">{{ appt.driver_name}}</h5>
+          <p class="card-text">{{ appt.comment }}</p>
+          <a href="/appointment/{{appt.id}}" class="btn btn-primary">Show</a>
+          <a href="/edit/{{appt.id}}" class="btn btn-primary">Update</a>
+          <a href="/delete/{{appt.id}}" class="btn btn-outline-danger">Delete</a>
         </div>
-        <div class="form-group">
-          <label for="inputTrailerNumber">Trailer #</label>
-          <input type="text" class="form-control" id="inputTrailerNumber" name="trailer_number" placeholder="000000">
-        </div>
-        <div class="form-row">
-          <div class="form-group col-md-6">
-            <label for="inputCarrier">Carrier</label>
-            <input type="text" class="form-control" name="Carrier" id="inputCarrier">
-          </div>
-          <div class="form-group col-md-4">
-            <label for="inputSubmissions">Submissions</label>
-            <select id="inputSubmissions" class="form-control" name="submissions">
-              <option selected>Choose...</option>
-              <option>...</option>
-            </select>
-          </div>
-          <div class="form-group col-md-2">
-            <label for="inputSeal">Seal #</label>
-            <input type="text" class="form-control" name="Seal #" id="inputSeal">
-          </div>
-          <div class="form-group col-md-2">
-            <label for="inputDoorNumber">Door #</label>
-            <input type="text" class="form-control" name="Door Number" id="inputDoorNumber">
-          </div>
-        </div>
-
-        <p>Status</p>
-        <div class="form-group">
-        <p>
-          <input id = "pending" type = "radio" name = "status"
-              value = "pending" checked />
-          <label for = "pending">Pending</label>
-      </p>
-      
-      <p>
-          <input id = "complete" type = "radio" name = "status"
-              value = "complete" checked />
-          <label for = "complete">Complete</label>
-      </p>
-
-      <p>
-        <input id = "staging" type = "radio" name = "status"
-            value = "staging" checked />
-        <label for = "staging">Staging</label>
-    </p></div>
-
-        <button type="submit" class="btn btn-primary">Submit</button>
-      </form>
-
-</div>
-{%endblock%}
+      </div>
+    {% endfor %}
+    {% endif %}
+  </div>
+  {% endblock %}
+{% endblock %}

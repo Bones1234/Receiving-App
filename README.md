@@ -46,3 +46,47 @@ will be listed on this page and updatable from this page. Statuses inlude (Pendi
 - pip3 install -r requirements.txt
 
 Just updating you on the app. We’ll be working with the actual Americold IT people to get it actually done. The prototype will serve as a template for them to work on.
+
+
+https://flask-sqlalchemy.palletsprojects.com/en/2.x/models/
+
+**To create the models in the database:**
+
+Open a python intepreter with `python3` , import `db` and run `db.create_all()`
+
+```
+python3
+from setup import db
+db.create_all()
+```
+
+
+#http://docs.sqlalchemy.org/en/latest/orm/query.html#sqlalchemy.orm.query.Query.limit
+
+#THIS IS NOT NECESSARY. First, run 'sqlite3 database.db < schema.sql' from the terminal to generate the database.db file from the schema file.
+
+#select * from customer where dateofbirth < date('now','-30 years');
+
+#User.birthday <= '1988-01-17
+
+#from app.py import db. db.create_all()
+#2016-01-01 10:20:05.123
+
+# QUERIES
+https://flask-sqlalchemy.palletsprojects.com/en/2.x/queries/
+
+**Retrieve a appointment by driver name:**
+Appointments.query.filter_by(driver_name="Sarah Jones").first()
+
+**Ordering appointments by something:**
+Appointments.query.order_by(Appointments.driver_name).all()
+
+**Limiting appointments:**
+Appointments.query.limit(1).all()
+
+**Getting user by primary key:**
+Appointments.query.get(1)
+
+**Selecting a bunch of users by a more complex expression:**
+Appointments.query.filter(Appointments.driver_name.endswith('s')).all()
+

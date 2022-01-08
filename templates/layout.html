@@ -8,6 +8,7 @@
     <link rel="icon" href="../../../../favicon.ico">
     <title>Starter Template for Bootstrap</title>
     <link rel="stylesheet" href="../static/boostrap.min.css">
+     <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
 
     <!-- Custom styles for this template -->
     <style type="text/css">
@@ -20,7 +21,24 @@
 </head>
 
 <body>
-    {%include 'components/main_nav.html'%}
+
+
+{% include 'components/main_nav.html' %}
+
+<div class="container" style="min-height:100% width:80%">
+	{% with messages = get_flashed_messages() %}
+	  {% if messages %}
+	    {% for message in messages %}
+		  <div class="alert alert-warning alert-dismissible" role="alert">
+		  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
+			{{message}}
+		  </div>
+		{% endfor %}
+	  {% endif %}
+	{% endwith %}
+	</div>
+
+
     <main role="main" class="container">
       {%block content%}{%endblock%}
     </main>
@@ -28,5 +46,7 @@
     <script src="../static/jquery-3.3.1.slim.min.js"></script>
     <script src="../static/popper.min.js"></script>
     <script src="../static/boostrap.min.css"></script>
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+
 </body>
 </html>

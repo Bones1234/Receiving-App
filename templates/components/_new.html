@@ -1,0 +1,122 @@
+<div class="bg-blue-500 text-white w-full p-8 text-4xl"><h4>New Appointment</h4></div>
+
+<form class="mt-1 row g-3 mx-0 needs-validation bg-light p-6" style="border-radius:.25rem" action='/create' method="POST" novalidate>
+  <div class="col-md-4">
+    <label for="validationCustom01" class="form-label">Driver name</label>
+    <input placeholder="Mark" name="driver_name" type="text" class="form-control" id="validationCustom01" required>
+    <div class="valid-feedback">
+      Looks good!
+    </div>
+  </div>
+  <div class="col-md-4">
+    <label for="validationCustom02" class="form-label">Phone number</label>
+    <input type="phone" name="phone_number" class="form-control" id="validationCustom02" placeholder="123-456-7890" required>
+    <div class="valid-feedback">
+      Looks good!
+    </div>
+  </div>
+  <div class="col-md-4">
+    <label for="validationCustomUsername" class="form-label">Link</label>
+    <div class="input-group has-validation">
+      <span class="input-group-text" id="inputGroupPrepend">@</span>
+      <input placeholder="http://" name="link" type="text" class="form-control" id="validationCustomUsername" aria-describedby="inputGroupPrepend" required>
+      <div class="invalid-feedback">
+        Please choose a username.
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <label for="validationCustom03" class="form-label">City</label>
+    <input placeholder="Los Angeles" type="text" class="form-control" id="validationCustom03" required>
+    <div class="invalid-feedback">
+      Please provide a valid city.
+    </div>
+  </div>
+  <div class="col-md-3">
+    <label for="validationCustom04" class="form-label">Asignees</label>
+    <select class="form-select" id="validationCustom04" name="assignee" required>
+      <option selected disabled value="">Choose...</option>
+      {% for assignee in params %}
+      <option>{{assignee}}</option>
+      {% endfor %}
+    </select>
+    <div class="invalid-feedback">
+      Please select a valid state.
+    </div>
+  </div>
+  <div class="col-md-3">
+    <label for="validationCustom05" class="form-label">Zip</label>
+    <input type="text" class="form-control" id="validationCustom05" required>
+    <div class="invalid-feedback">
+      Please provide a valid zip.
+    </div>
+  </div>
+
+        <div class="col-md-3">
+          <label for="inputPONumber" class="form-label">PO #</label>
+          <input type="tel" class="form-control" id="inputPONumber" name="po_number" placeholder="12345" maxlength="5" pattern=".{5}" required title="5 characters">
+        </div>
+        <div class="col-md-3">
+          <label for="inputTrailerNumber">Trailer #</label>
+          <input type="text" class="form-control" id="inputTrailerNumber" name="trailer_number" placeholder="000-000">
+        </div>
+         <div class="col-md-3">
+            <label for="inputDoorNumber">Door #</label>
+            <input placeholder="323" type="text" class="form-control" name="door_number" id="inputDoorNumber">
+          </div>
+          <div class="col-md-3">
+            <label for="inputCarrier">Carrier</label>
+            <input placeholder="Verizon" type="text" class="form-control" name="carrier" id="inputCarrier">
+          </div>
+
+        <label>Status</label>
+
+        <div class="form-group">
+            <p class="mt-2">
+                <input id = "pending" type = "radio" name = "status"
+                value = "pending" checked />
+                <label for = "pending">Pending</label>
+            </p>
+
+            <p class="mt-2">
+                <input id = "complete" type = "radio" name = "status"
+                value = "complete" checked />
+                <label for = "complete">Complete</label>
+            </p>
+
+            <p class="mt-2">
+                <input id = "staging" type = "radio" name = "status"
+                value = "staging" checked />
+                <label for = "staging">Staging</label>
+            </p>
+
+            <div class="form-group mt-2">
+                <label for="inputComment">Comments</label>
+                <textarea type="text" class="form-control mt-2" id="inputComment" name="comment" placeholder="..."></textarea>
+            </div>
+    </div>
+
+      <div class="col-12">
+    <div class="form-check items-center flex">
+      <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+      <span class="form-check-label ml-2" for="invalidCheck">
+        Agree to terms and conditions
+      </span>
+      <div class="invalid-feedback">
+        You must agree before submitting.
+      </div>
+    </div>
+  </div>
+
+
+  <div class="col-12">
+    <button class="btn btn-primary" type="submit">Submit form</button>
+  </div>
+</form>
+
+<style>
+
+div > label{font-size: 1.2rem; font-weight:500}
+input{padding: .75rem .5rem !important}
+select{padding: .75rem .75rem !important}
+</style>
